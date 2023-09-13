@@ -1,0 +1,7 @@
+{% extends "my_app/base.html" %}
+
+{% block content %}
+<h1>안녕! 난 my_app</h1>
+<a href="{% url 'articles:index'%}">articles</a>
+<span>로 이동</span>
+{% endblock content %}
