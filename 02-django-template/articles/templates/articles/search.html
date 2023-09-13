@@ -1,0 +1,13 @@
+{% extends "articles/base.html" %}
+
+{% block content %}
+    <h1>Fake Google</h1>
+    {% comment %} action="어디로 보낼 것인가" {% endcomment %}
+    <form action="https://www.google.com/search?"> 
+        <label for="message">검색어</label>  {% comment %} 검색어 클릭하면 id="message"에 해당하는 input이 선택됨 {% endcomment %}
+        <input type="text" name="q" id="message"> {% comment %} "query=여기 입력하는거" 형태로 위의 url뒤에 붙음 {% endcomment %}
+        <input type="submit">
+    </form>
+{% endblock content %}
+
+
