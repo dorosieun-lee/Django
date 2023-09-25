@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Article
 
 # Create your views here.
@@ -20,8 +20,8 @@ def new(request):
     return render(request, 'articles/new.html')
 
 def create(request):
-    title = request.GET.get('title')
-    content = request.GET.get('content')
+    title = request.POST.get('title')
+    content = request.POST.get('content')
 
     # CREATE 방법
     # 1. 
@@ -37,7 +37,7 @@ def create(request):
     # 3.
     # Article.objects.create(title=title, content=content)
 
-    return render(request, 'articles/create.html')
+    return redirect('articles:detail', article.pk)
 
 def delete(request, pk):
     # 몇 번 게시글을 삭제할 것인지 조회
