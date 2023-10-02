@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Travels</h1>
+<a href="{% url 'travels:create' %}">CREATE</a>
+{% for travel in travels %}
+    <a href="{% url 'travels:detail' travel.pk %}">
+        <ul><li>장소 : {{ travel.location }}</li></ul>
+    </a>
+    <hr>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Movies</h1>
+  <a href="{% url 'movies:create' %}">CREATE</a>
+  <hr>
+  {% for movie in movies %}
+    {% if movie.image_thumbnail %}
+      <img src="{{ movie.image_thumbnail.url }}" alt="movie thumbnail">
+    {% endif %}
+    <p>제목 : {{ movie.title }}</p>
+    <p>감독 : {{ movie.director }}</p>
+    <a href="{% url 'movies:detail' movie.pk %}">[detail]</a>
+    <hr>
+  {% endfor %}
+{% endblock %}
+
