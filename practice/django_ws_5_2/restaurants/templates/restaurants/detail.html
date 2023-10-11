@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>맛집 상세 정보</h1>
+<p>식당 번호: {{ item.pk }} </p>
+<p>식당 이름: {{ item.name }} </p>
+<p>식당 설명: {{ item.description }} </p>
+<p>식당 위치: {{ item.address }} </p>
+<p>전화 번호: {{ item.phone_number }} </p>
+<hr>
+<a href="{% url 'restaurants:edit' item.pk %}">[EDIT]</a>
+<form action="{% url 'restaurants:delete' item.pk %}">
+    <input type="submit" value="DELETE">
+</form>
+<hr>
+<a href="{%  url 'restaurants:index' %}">[BACK]</a>
+{% endblock content %}
